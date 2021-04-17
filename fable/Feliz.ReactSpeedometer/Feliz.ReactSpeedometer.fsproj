@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.0.1</Version>
+        <Authors>Compositional IT</Authors>
+        <Company>Compositional IT</Company>
+        <PackageProjectUrl>https://github.com/CompositionalIT/Feliz-ReactSpeedometer</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/CompositionalIT/Feliz-ReactSpeedometer</RepositoryUrl>
+    </PropertyGroup>
+
+    <Import Project="..\..\.paket\Paket.Restore.targets" />
+    <ItemGroup>
+        <Content Include="*.fsproj; **\*.fs; **\*.fsi" Exclude="obj\**; bin\**" PackagePath="fable\" />
+        <None Include="paket.references" />
+        <Compile Include="Feliz.ReactSpeedometer.fs" />
+    </ItemGroup>
+    <PropertyGroup>
+        <NpmDependencies>
+            <NpmPackage Name="react-d3-speedometer" Version="1.0.1" ResolutionStrategy="Max" />
+        </NpmDependencies>
+    </PropertyGroup>
+</Project>
