@@ -119,7 +119,7 @@ type ReactSpeedometer =
 
 
     static member inline NeedleHeightRatio (number: float) =
-        if (number > 0 && number < 1) then "needleHeightRatio" ==> number
+        if (number > 0. && number < 1.) then "needleHeightRatio" ==> number
 
     static member inline CustomSegmentStops (ranges: int []) = "customSegmentStops" ==> ranges
 
