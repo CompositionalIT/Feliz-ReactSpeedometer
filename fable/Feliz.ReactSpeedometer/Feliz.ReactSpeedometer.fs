@@ -1,4 +1,4 @@
-module Feliz
+module Feliz.ReactSpeedometer
 
 open Feliz
 open Fable.Core.JsInterop

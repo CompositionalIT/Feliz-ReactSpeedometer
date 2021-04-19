@@ -3,7 +3,8 @@ module Index
 open Elmish
 open Fable.Remoting.Client
 open Shared
-open Feliz
+open Feliz.ReactSpeedometer
+
 
 type Model = { Todos: Todo list; Input: string }
 
@@ -146,6 +147,12 @@ let view (model: Model) (dispatch: Msg -> unit) =
                                 ReactSpeedometer.Value 10
                                 ReactSpeedometer.Segments 4
                                 ReactSpeedometer.CustomSegmentLabels test
+                                ReactSpeedometer.NeedleTransition EaseElastic
+                                ReactSpeedometer.DimensionUnit EM
+                                ReactSpeedometer.RingWidth 100
+                                ReactSpeedometer.PaddingVertical 100
+                                ReactSpeedometer.StartColor "blue"
+                                ReactSpeedometer.EndColor "green"
                             ]
                         ]
                     ]
