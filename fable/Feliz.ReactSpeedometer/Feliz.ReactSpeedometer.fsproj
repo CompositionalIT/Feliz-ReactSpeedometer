@@ -14,7 +14,7 @@
     <Import Project="..\..\.paket\Paket.Restore.targets" />
     <ItemGroup>
         <Content Include="*.fsproj; **\*.fs; **\*.fsi" Exclude="obj\**; bin\**" PackagePath="fable\" />
-        <None Include="..\..\..\feliz-react-awesome-slider\CIT-logo.png">
+        <None Include="..\..\CIT-logo.png">
           <Pack>True</Pack>
           <PackagePath></PackagePath>
         </None>
