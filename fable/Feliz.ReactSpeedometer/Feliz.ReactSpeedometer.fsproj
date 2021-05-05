@@ -4,7 +4,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.0.2</Version>
+        <Version>0.0.3</Version>
         <Authors>Compositional IT</Authors>
         <Company>Compositional IT</Company>
         <PackageProjectUrl>https://github.com/CompositionalIT/Feliz-ReactSpeedometer</PackageProjectUrl>
@@ -14,6 +14,10 @@
     <Import Project="..\..\.paket\Paket.Restore.targets" />
     <ItemGroup>
         <Content Include="*.fsproj; **\*.fs; **\*.fsi" Exclude="obj\**; bin\**" PackagePath="fable\" />
+        <None Include="..\..\..\feliz-react-awesome-slider\CIT-logo.png">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
+        </None>
         <None Include="paket.references" />
         <Compile Include="Feliz.ReactSpeedometer.fs" />
     </ItemGroup>
@@ -21,5 +25,6 @@
         <NpmDependencies>
             <NpmPackage Name="react-d3-speedometer" Version="1.0.1" ResolutionStrategy="Max" />
         </NpmDependencies>
+        <PackageIcon>CIT-logo.png</PackageIcon>
     </PropertyGroup>
 </Project>
