@@ -103,46 +103,50 @@ type DimensionUnit =
                 | PT -> "pt"
                 | PC -> "pc"
 
+type IReactSpeedometerProperty = interface end
+
+let (=>) key value = unbox<IReactSpeedometerProperty>(key ==> value)
+
 type ReactSpeedometer =
 
-    static member inline Value (number: int) = "value" ==> number
-    static member inline MinValue (number: int) = "minValue" ==> number
-    static member inline MaxValue (number: int) = "maxValue" ==> number
-    static member inline MaxSementLabels (number: int) = "maxSementLabels" ==> number
-    static member inline Segments (number: int) = "segments" ==> number
-    static member inline Width (number: int) = "width" ==> number
-    static member inline Height (number: int) = "height" ==> number
-    static member inline NeedleTransitionDuration (number: int) = "needleTransitionDuration" ==> number
-    static member inline RingWidth (number: int) = "ringWidth" ==> number
-    static member inline PaddingHorizontal (number: int) = "paddingHorizontal" ==> number
-    static member inline PaddingVertical (number: int) = "paddingVertical" ==> number
+    static member inline Value (number: int) = "value" => number
+    static member inline MinValue (number: int) = "minValue" => number
+    static member inline MaxValue (number: int) = "maxValue" => number
+    static member inline MaxSementLabels (number: int) = "maxSementLabels" => number
+    static member inline Segments (number: int) = "segments" => number
+    static member inline Width (number: int) = "width" => number
+    static member inline Height (number: int) = "height" => number
+    static member inline NeedleTransitionDuration (number: int) = "needleTransitionDuration" => number
+    static member inline RingWidth (number: int) = "ringWidth" => number
+    static member inline PaddingHorizontal (number: int) = "paddingHorizontal" => number
+    static member inline PaddingVertical (number: int) = "paddingVertical" => number
 
 
     static member inline NeedleHeightRatio (number: float) =
         if (number > 0. && number < 1.) then
-            "needleHeightRatio" ==> number
+            "needleHeightRatio" => number
         else
-            "needleHeightRatio" ==> 0.9
+            "needleHeightRatio" => 0.9
 
-    static member inline CustomSegmentStops (ranges: int []) = "customSegmentStops" ==> ranges
+    static member inline CustomSegmentStops (ranges: int []) = "customSegmentStops" => ranges
 
-    static member inline ForceRender (reRender: bool) = "forceRender" ==> reRender
-    static member inline FluidWidth (isFluid: bool) = "fluidWidth" ==> isFluid
+    static member inline ForceRender (reRender: bool) = "forceRender" => reRender
+    static member inline FluidWidth (isFluid: bool) = "fluidWidth" => isFluid
 
-    static member inline NeedleColor (color: string) = "needleColor" ==> color
-    static member inline StartColor (color: string) = "startColor" ==> color
-    static member inline EndColor (color: string) = "endColor" ==> color
-    static member inline SegmentColors (colors: string []) = "segmentColors" ==> colors
-    static member inline TextColor (colors: string []) = "textColor" ==> colors
+    static member inline NeedleColor (color: string) = "needleColor" => color
+    static member inline StartColor (color: string) = "startColor" => color
+    static member inline EndColor (color: string) = "endColor" => color
+    static member inline SegmentColors (colors: string []) = "segmentColors" => colors
+    static member inline TextColor (colors: string []) = "textColor" => colors
 
-    static member inline LabelFontSize (size: string) = "labelFontSize" ==> size
-    static member inline ValueTextFontSize (size: string) = "valueTextFontSize" ==> size
+    static member inline LabelFontSize (size: string) = "labelFontSize" => size
+    static member inline ValueTextFontSize (size: string) = "valueTextFontSize" => size
 
-    static member inline DimensionUnit (dimensionUnit: DimensionUnit) = "dimensionUnit" ==> (dimensionUnit |> DimensionUnit.toJSValue)
-    static member inline NeedleTransition (transition: Transition) = "needleTransition" ==> (transition |> Transition.toJSValue)
+    static member inline DimensionUnit (dimensionUnit: DimensionUnit) = "dimensionUnit" => (dimensionUnit |> DimensionUnit.toJSValue)
+    static member inline NeedleTransition (transition: Transition) = "needleTransition" => (transition |> Transition.toJSValue)
 
     static member inline CustomSegmentLabels (customSegmentLabels: CustomSegmentLabel []) =
         let jsCustomSegmentLabels = customSegmentLabels |> Array.map CustomSegmentLabel.toJSObj
-        "customSegmentLabels" ==> jsCustomSegmentLabels
+        "customSegmentLabels" => jsCustomSegmentLabels
 
-    static member inline create props = Interop.reactApi.createElement (reactSpeedometer, createObj !!props)
+    static member inline create (props: IReactSpeedometerProperty list) = Interop.reactApi.createElement (reactSpeedometer, createObj !!props)
