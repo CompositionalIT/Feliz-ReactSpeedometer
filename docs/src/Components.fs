@@ -3,6 +3,7 @@ namespace App
 open Feliz.Bulma
 open Feliz
 open Fable.Core.JsInterop
+open Feliz.ReactSpeedometer
 
 type CitColors =
     static member lightBlue = "#40a8b7"
@@ -223,19 +224,52 @@ type Components =
                         StyledComponents.HeadingWithContent
                             "Demo"
                             (Html.div [
-                            ])
-                        StyledComponents.HeadingWithContent
-                            "Props"
-                            (Html.div [
+                                prop.style [ style.display.flex; style.justifyContent.center; style.alignItems.center ]
+                                prop.children [
+                                    ReactSpeedometer.create [
+                                        ReactSpeedometer.Value 100
+                                        ReactSpeedometer.NeedleTransition EaseBackOut
+                                        ReactSpeedometer.Width 500
+                                        ReactSpeedometer.NeedleHeightRatio 0.7
+                                        ReactSpeedometer.RingWidth 100
+                                        ReactSpeedometer.NeedleTransitionDuration 1500
+                                        ReactSpeedometer.TextColor [| CitColors.darkBlue |]
+                                        ReactSpeedometer.Segments 5
+                                        ReactSpeedometer.NeedleColor CitColors.darkBlue
+                                        ReactSpeedometer.SegmentColors [| CitColors.yellow; CitColors.orange; CitColors.red; CitColors.green; CitColors.lightBlue  |]
+                                    ]
+                                ]
                             ])
 
                         StyledComponents.HeadingWithContent
                             "Installation"
-                            (StyledComponents.CodeBlock """ """ )
+                            (StyledComponents.CodeBlock """
+cd ./project
+femto install Feliz.ReactSpeedometer""" )
 
                         StyledComponents.HeadingWithContent
                             "Sample Code"
-                            (StyledComponents.CodeBlock """ """ )
+                            (StyledComponents.CodeBlock """
+open Feliz.ReactSpeedometer
+
+ReactSpeedometer.create [
+    ReactSpeedometer.Value 100
+    ReactSpeedometer.NeedleTransition EaseBackOut
+    ReactSpeedometer.Width 500
+    ReactSpeedometer.NeedleHeightRatio 0.7
+    ReactSpeedometer.RingWidth 100
+    ReactSpeedometer.NeedleTransitionDuration 1500
+    ReactSpeedometer.TextColor [| "#102035" |]
+    ReactSpeedometer.Segments 5
+    ReactSpeedometer.NeedleColor "#102035"
+    ReactSpeedometer.SegmentColors [|
+        "#fec903"
+        "#e97305"
+        "#e1053a"
+        "#8cbf41"
+        "#40a8b7"
+    |]
+]""" )
                     ]
                 ]
             ]
