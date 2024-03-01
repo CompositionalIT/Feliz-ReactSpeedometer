@@ -6,8 +6,8 @@ let add x y = x + y
 
 let appTests = testList "App tests" [
     testCase "add works" <| fun _ ->
-        let result = add 2 3
-        Expect.equal result 5 "Result must be 5"
+        let result = add 2 4
+        Expect.equal result 6 "Result must be 6"
 ]
 
 let allTests = testList "All" [
