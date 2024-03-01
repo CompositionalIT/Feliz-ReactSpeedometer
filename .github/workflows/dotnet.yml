@@ -1,10 +1,8 @@
-name: Nuget-Publish
+name: Release Package
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -12,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Check out
+      uses: actions/checkout@v4.1.1
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4.0.0
       with:
         dotnet-version: 5.0.100
     - name: Restore tools
@@ -25,9 +24,9 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
       working-directory: ./fable/Feliz.ReactSpeedometer
+    - name: Pack
+      run: dotnet pack --configuration Release --no-build --output -p:PackageVersion=${{ github.ref_name }} p:PackageReleaseNotes=${{ github.event.release.html_url }} .
+      working-directory: ./fable/Feliz.ReactSpeedometer
     - name: Publish
-      uses: brandedoutcast/publish-nuget@v2.5.2
-      with:
-       PROJECT_FILE_PATH: fable/Feliz.ReactSpeedometer/Feliz.ReactSpeedometer.fsproj
-       NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-
+      run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+      working-directory: ./fable/Feliz.ReactSpeedometer
