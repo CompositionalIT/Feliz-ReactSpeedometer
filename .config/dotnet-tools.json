@@ -13,12 +13,6 @@
       "commands": [
         "fable"
       ]
-    },
-    "fantomas": {
-      "version": "6.2.3",
-      "commands": [
-        "fantomas"
-      ]
     }
   }
 }
