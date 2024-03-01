@@ -14,8 +14,8 @@
         "fable"
       ]
     },
-    "fantomas-tool": {
-      "version": "4.4.0",
+    "fantomas": {
+      "version": "6.2.3",
       "commands": [
         "fantomas"
       ]
