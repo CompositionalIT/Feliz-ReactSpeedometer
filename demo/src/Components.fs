@@ -233,6 +233,7 @@ type Components =
                                         ReactSpeedometer.NeedleHeightRatio 0.7
                                         ReactSpeedometer.RingWidth 100
                                         ReactSpeedometer.NeedleTransitionDuration 1500
+                                        ReactSpeedometer.TextColor CitColors.darkBlue
                                         ReactSpeedometer.Segments 5
                                         ReactSpeedometer.NeedleColor CitColors.darkBlue
                                         ReactSpeedometer.SegmentColors [| CitColors.yellow; CitColors.orange; CitColors.red; CitColors.green; CitColors.lightBlue  |]
@@ -258,6 +259,9 @@ ReactSpeedometer.create [
     ReactSpeedometer.NeedleHeightRatio 0.7
     ReactSpeedometer.RingWidth 100
     ReactSpeedometer.NeedleTransitionDuration 1500
+    ReactSpeedometer.TextColor "#102035"
+    //Prior to v1
+    //ReactSpeedometer.TextColor [| "#102035" |]
     ReactSpeedometer.Segments 5
     ReactSpeedometer.NeedleColor "#102035"
     ReactSpeedometer.SegmentColors [|

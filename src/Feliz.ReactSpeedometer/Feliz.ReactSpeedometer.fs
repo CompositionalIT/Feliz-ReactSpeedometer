@@ -137,6 +137,7 @@ type ReactSpeedometer =
     static member inline StartColor (color: string) = "startColor" => color
     static member inline EndColor (color: string) = "endColor" => color
     static member inline SegmentColors (colors: string []) = "segmentColors" => colors
+    static member inline TextColor (colors: string) = "textColor" => colors
 
     static member inline LabelFontSize (size: string) = "labelFontSize" => size
     static member inline ValueTextFontSize (size: string) = "valueTextFontSize" => size
