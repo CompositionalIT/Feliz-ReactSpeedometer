@@ -41,6 +41,9 @@ jobs:
     - name: Restore demo tools
       run: dotnet tool restore
       working-directory: ./demo
+
+    - name: Set git user
+      uses: fregante/setup-git-user@v2
       
     - name: Deploy Demo
       run: npm run publish-docs
