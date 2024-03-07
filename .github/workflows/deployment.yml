@@ -12,25 +12,36 @@ jobs:
     steps:
     - name: Check out
       uses: actions/checkout@v4
+      
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+        
     - name: Restore tools
       run: dotnet tool restore
+      
 # Build and Pack need to be seperate operations due to error NU5026
     - name: Build
       run: dotnet build --configuration Release
+      
     - name: Pack
       run: dotnet pack --no-build -p:PackageVersion=${{ github.ref_name }} -p:PackageReleaseNotes=${{ github.event.release.html_url }} --output .
       working-directory: ./src/Feliz.ReactSpeedometer
+      
     - name: Publish
       run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
       working-directory: ./src/Feliz.ReactSpeedometer
+      
     - name: Setup node
       uses: actions/setup-node@v4
       with:
         node-version: 20
+        
+    - name: Restore demo tools
+      run: dotnet tool restore
+      working-directory: ./demo
+      
     - name: Deploy Demo
       run: npm run publish-docs
       working-directory: ./demo
