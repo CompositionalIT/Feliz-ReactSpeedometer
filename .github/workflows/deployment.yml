@@ -6,45 +6,48 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Check out
       uses: actions/checkout@v4
-      
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-        
+
     - name: Restore tools
       run: dotnet tool restore
-      
-# Build and Pack need to be seperate operations due to error NU5026
+
+# Build and Pack need to be separate operations due to error NU5026
     - name: Build
       run: dotnet build --configuration Release
-      
+
     - name: Pack
       run: dotnet pack --no-build -p:PackageVersion=${{ github.ref_name }} -p:PackageReleaseNotes=${{ github.event.release.html_url }} --output .
       working-directory: ./src/Feliz.ReactSpeedometer
-      
+
     - name: Publish
       run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
       working-directory: ./src/Feliz.ReactSpeedometer
-      
+
     - name: Setup node
       uses: actions/setup-node@v4
       with:
         node-version: 20
-        
+
     - name: Restore demo tools
       run: dotnet tool restore
       working-directory: ./demo
 
-    - name: Set git user
-      uses: fregante/setup-git-user@v2
-      
-    - name: Deploy Demo
-      run: npm run publish-docs
+    - name: Build Demo
+      run: npm run build
       working-directory: ./demo
+
+    - name: Deploy pages 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: dist
