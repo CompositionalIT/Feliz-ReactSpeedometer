@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "App", "demo\src\App.fsproj", "{8936B4BB-FC48-4749-94F9-2C3E2742BF43}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Demo", "demo\Demo.fsproj", "{8936B4BB-FC48-4749-94F9-2C3E2742BF43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,7 +12,6 @@
 
     <Import Project="..\..\.paket\Paket.Restore.targets" />
     <ItemGroup>
-        <Content Include="*.fsproj; **\*.fs; **\*.fsi" Exclude="obj\**; bin\**" PackagePath="fable\" />
         <None Include="..\..\CIT-logo.png">
             <Pack>True</Pack>
             <PackagePath>$(PackageIconUrl)</PackagePath>
@@ -20,9 +19,12 @@
         <None Include="paket.references" />
         <Compile Include="Feliz.ReactSpeedometer.fs" />
     </ItemGroup>
+    <ItemGroup>
+        <Content Include="*.fsproj; **\*.fs; *.js" PackagePath="fable\" />
+    </ItemGroup>
     <PropertyGroup>
         <NpmDependencies>
-            <NpmPackage Name="react-d3-speedometer" Version="1.0.1" ResolutionStrategy="Max" />
+            <NpmPackage Name="react-d3-speedometer" Version="gte 2.2.1 lt 3.0.0" ResolutionStrategy="Max" />
         </NpmDependencies>
         <PackageIcon>CIT-logo.png</PackageIcon>
     </PropertyGroup>

@@ -3,16 +3,15 @@
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
-
+    <ItemGroup>
+        <ProjectReference Include="..\src\Feliz.ReactSpeedometer\Feliz.ReactSpeedometer.fsproj" />
+    </ItemGroup>
     <ItemGroup>
         <None Include="index.html" />
         <Compile Include="Extensions.fs" />
         <Compile Include="Components.fs" />
         <Compile Include="Main.fs" />
         <Content Include="vite.config.mts" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\..\src\Feliz.ReactSpeedometer\Feliz.ReactSpeedometer.fsproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Feliz" Version="2.7.0" />

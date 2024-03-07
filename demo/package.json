@@ -6,9 +6,9 @@
     },
     "scripts": {
         "prestart": "dotnet fable clean --yes",
-        "start": "dotnet fable watch ./src -s -o ./src/output --run npx vite ./src",
+        "start": "dotnet fable watch -s -o ./output --run npx vite",
         "prebuild": "dotnet fable clean --yes",
-        "build": "dotnet fable ./src -s -o ./src/output --run npx vite build ./src",
+        "build": "dotnet fable -s -o ./output --run npx vite build",
         "publish-docs": "npm run build && node publish.js"
     },
     "dependencies": {
