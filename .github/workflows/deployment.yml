@@ -1,0 +1,33 @@
+name: Release Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out
+      uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore tools
+      run: dotnet tool restore
+    - name: Pack
+      run: dotnet pack --configuration Release --output -p:PackageVersion=${{ github.ref_name }} p:PackageReleaseNotes=${{ github.event.release.html_url }} .
+      working-directory: ./src/Feliz.ReactSpeedometer
+    - name: Publish
+      run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
+      working-directory: ./src/Feliz.ReactSpeedometer
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: Deploy Demo
+      run: npm run publish-docs
+      working-directory: ./demo
