@@ -5,9 +5,9 @@
         "npm": "~9 || ~10"
     },
     "scripts": {
-        "prestart": "dotnet fable clean --yes",
+        "prestart": "dotnet fable clean --yes && npm install",
         "start": "dotnet fable watch -s -o ./output --run npx vite",
-        "prebuild": "dotnet fable clean --yes",
+        "prebuild": "dotnet fable clean --yes && npm install",
         "build": "dotnet fable -s -o ./output --run npx vite build",
         "publish-docs": "npm run build && node publish.js"
     },

@@ -7,10 +7,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Feliz.ReactSpeedometer", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08CCFCF6-2248-43ED-A6EF-E972A2DA0E6A}"
 	ProjectSection(SolutionItems) = preProject
-		package-lock.json = package-lock.json
-		package.json = package.json
 		paket.dependencies = paket.dependencies
-		paket.lock = paket.lock
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -77,10 +74,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{43A5BE55-A6F6-453D-85B6-272575E85B71} = {C4CA0F62-8C46-42AA-AF3B-E2B42007ED87}
-		{3EF85169-8BA3-45CF-AC6C-5664B0C337B2} = {08CCFCF6-2248-43ED-A6EF-E972A2DA0E6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD70A398-972A-4F49-A271-31A05BD8FD40}
