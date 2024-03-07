@@ -19,7 +19,7 @@ jobs:
     - name: Restore tools
       run: dotnet tool restore
     - name: Pack
-      run: dotnet pack --configuration Release --output -p:PackageVersion=${{ github.ref_name }} p:PackageReleaseNotes=${{ github.event.release.html_url }} .
+      run: dotnet pack --configuration Release -p:PackageVersion=${{ github.ref_name }} -p:PackageReleaseNotes=${{ github.event.release.html_url }} --output .
       working-directory: ./src/Feliz.ReactSpeedometer
     - name: Publish
       run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
