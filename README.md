@@ -8,8 +8,8 @@ Feliz style bindings for [react-d3-speedometer](https://www.npmjs.com/package/re
 
 | Feliz.ReactSpeedometer | react-d3-speedometer | React | Fable | Feliz |
 |------------------------|----------------------|-      |-      |-      |
-| 0.0.4                  | 2.x                  | 17.x  | 3.x   | 1.x   |
-| 1.x                    | 1.x                  | 18.x  | 4.x   | 2.x   |
+| 0.0.4                  | 1.x                  | 17.x  | 3.x   | 1.x   |
+| 1.x                    | 2.x                  | 18.x  | 4.x   | 2.x   |
 
 ## Installation
 
