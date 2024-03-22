@@ -8,6 +8,7 @@
     <Company>Compositional IT</Company>
     <PackageProjectUrl>https://github.com/CompositionalIT/Feliz-ReactSpeedometer</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CompositionalIT/Feliz-ReactSpeedometer</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\CIT-logo.png">
@@ -19,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; **\*.fs; *.js" PackagePath="fable\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>
