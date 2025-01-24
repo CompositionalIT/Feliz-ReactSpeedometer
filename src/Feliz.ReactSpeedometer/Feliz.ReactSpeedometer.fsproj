@@ -9,6 +9,9 @@
     <PackageProjectUrl>https://github.com/CompositionalIT/Feliz-ReactSpeedometer</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CompositionalIT/Feliz-ReactSpeedometer</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <DebugType>embedded</DebugType>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PackageTags>fable;fable-binding;fable-javascript</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\CIT-logo.png">
